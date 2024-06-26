@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="{% block lang %}{% endblock %}">
+
+<head>
+    <title>CREMAET DYNAMICS SL{% block title %}{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://via.placeholder.com/70x70">
+    <link rel="stylesheet" href="{% block asset_path %}{% endblock %}assets/css/mvp.css">
+    <link rel="stylesheet" href="{{ self.asset_path() }}assets/css/style.css">
+    <link rel="stylesheet" href="https://pdcc.gdpr.es/pdcc.min.css">
+    <script src="https://pdcc.gdpr.es/pdcc.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script type="text/javascript">
+        PDCookieConsent.config({
+            "brand": {
+                "dev": false,
+                "name": "CREMAET DYNAMICS SL",
+                "url": "https://www.cremaetdynamics.com",
+                "websiteOwner": ""
+            },
+            "showRejectButton": true,
+            "cookiePolicyLink": "https://www.cremaetdynamics.com/privacy-policy.html",
+            "hideModalIn": [
+                "https://www.cremaetdynamics.com/privacy-policy.html",
+                "https://www.cremaetdynamics.com/legal-notice.html"
+            ],
+            "styles": {
+                "primaryButton": {
+                    "bgColor": "#EEEEEE",
+                    "txtColor": "#333333"
+                },
+                "secondaryButton": {
+                    "bgColor": "#EEEEEE",
+                    "txtColor": "#333333"
+                },
+                "rejectButton": {
+                    "bgColor": "#EEEEEE",
+                    "txtColor": "#333333"
+                }
+            }
+        });
+
+        particlesJS.load('particles-bg-target', '{{ self.asset_path() }}assets/js/particlesjs-config.json');
+    </script>
+</head>
+
+<body class="{% block page_class %}{% endblock %}">
+    <header id="particles-bg-target">
+        <nav>
+            <h1>CREMAET DYNAMICS</h1>
+            <ul>
+                {% block header_nav %}{% endblock %}
+            </ul>
+        </nav>
+        {% block header_content %}{% endblock %}
+    </header>
+    <main>
+        {% block main_content %}{% endblock %}
+    </main>
+    <footer>
+        <article>
+            <h1>CREMAET DYNAMICS SL</h1>
+            <p>Calle Alfonso II el Benigno, 21</br>46180 Benaguasil (València) Spain<br /><a
+                    href="mailto:contact@cremaetdynamics.com">contact@cremaetdynamics.com</a></p>
+        </article>
+        <nav>
+            <ul>
+                {% block footer_nav %}{% endblock %}
+            </ul>
+        </nav>
+    </footer>
+</body>
+
+</html>

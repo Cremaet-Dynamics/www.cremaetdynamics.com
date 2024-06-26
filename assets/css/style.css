@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,600;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+/* Theme variables */
+:root {
+  --theme-text-light: #000;
+  --theme-text-secondary-light: #999;
+  --theme-text-dark: #f7f7f7;
+  --theme-text-secondary-dark: #aaa;
+  --theme-color-1: hsla(189, 100%, 56%, 1);
+  --theme-color-2: hsla(355, 100%, 93%, 1);
+  --theme-color-3: hsla(28, 100%, 74%, 1);
+  --theme-color-4: hsla(340, 100%, 76%, 1);
+  --theme-color-5: hsla(242, 100%, 70%, 1);
+}
+
+/* Variables */
+:root {
+  --active-brightness: 0.85;
+  --border-radius: 1em;
+  --box-shadow: 2px 2px 10px;
+  --color-scrollbar: #cacae8;
+  --color-text: var(--theme-text-light);
+  --color-text-secondary: var(--theme-text-secondary-light);
+  --color-inverse-text: var(--theme-text-dark);
+  --color-inverse-text-secondary: var(--theme-text-secondary-dark);
+  --font-family: 'Roboto', sans-serif;
+  --header-font-family: 'Roboto', sans-serif;
+  --logo-font-family: 'Josefin Sans', sans-serif;
+  /*--header-bg-image: url('../images/bg.webp');*/
+  --header-bg-image:
+    radial-gradient(at 0% 0%, var(--theme-color-2) 0px, transparent 50%),
+    radial-gradient(at 40% 20%, var(--theme-color-3) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, var(--theme-color-2) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, var(--theme-color-1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, var(--theme-color-3) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, var(--theme-color-4) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, var(--theme-color-5) 0px, transparent 50%);
+  --inverted-color-text-secondary: #aaa;
+  --inverted-color-text: #f7f7f7;
+  --logo-image: url('../images/logo.svg');
+  --color-link: var(--theme-color-5);
+  --color-accent: var(--theme-color-2);
+}
+
+/* Prevent padding to increase size of elements */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Ensure full height of body */
+html,
+body {
+  min-height: 100% !important;
+  height: 100%;
+}
+
+/* Replace margin of primary elements with padding. */
+footer,
+header,
+main {
+  max-width: none;
+  width: 100%;
+  padding: 3rem max(calc(50% - 0.5 * var(--width-content)), 2rem);
+}
+
+/* Replace font family of headers */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--header-font-family);
+}
+
+/* Nav (headers and footers) */
+nav {
+  margin-bottom: 0;
+}
+
+/* Horizontal rule */
+hr {
+  background-color: var(--theme-color-5);
+  border: 0;
+  height: 2px;
+  width: 30%;
+  position: relative;
+  margin: 4em auto;
+  overflow: visible;
+}
+
+hr::before {
+  content: "";
+  width: 0.75em;
+  height: 0.75em;
+  background: var(--theme-color-5);
+  display: block;
+  position: absolute;
+  top: calc(-0.5 * 0.75em + 1px);
+  left: 50%;
+  margin: 0;
+  border-radius: 50%;
+}
+
+/* Header */
+body>header {
+  background-image: var(--header-bg-image);
+  background-size: cover;
+  background-position: center;
+}
+body>header nav {
+  font-weight: normal;
+  padding: 0 1rem;
+}
+body>header nav h1 {
+  font-family: var(--logo-font-family);
+}
+body>header nav a {
+  color: var(--color-text);
+}
+
+body>header {
+  position:relative;
+}
+
+body>header .particles-js-canvas-el {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* Header in the landing page */
+body.landing-page>header {
+  min-height: 100%;
+  background-image: none;
+}
+
+body.landing-page>header nav {
+  margin-bottom: 15%;
+}
+
+body.landing-page>header::before {
+  background-image: var(--header-bg-image);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  content: "";
+  top: 0;
+  left: 0;
+  z-index: -2;
+  position: absolute;
+}
+body.landing-page>header::after {
+  background-image: var(--logo-image);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 90% 50%;
+  opacity: 0.1;
+  width: 90%;
+  height: 90%;
+  content: "";
+  top: 5%;
+  left: 5%;
+  z-index: -1;
+  position: absolute;
+}
+
+
+/* Landing page hero */
+#hero {
+  margin: 0 auto;
+  max-width: calc(0.75 * var(--width-content));
+  font-size: 1.5em;
+}
+
+#hero h1 {
+  font-size: 2.5em;
+}
+
+/* Contact */
+#contact {
+  font-size: 1.5em;
+}
+
+/* Footer */
+body>footer {
+  background-color: #f0f0f0;
+  align-items: center;
+  display: flex;
+  font-weight: bold;
+  justify-content: space-between;
+}
+
+body>footer h1 {
+  font-family: var(--logo-font-family);
+}
+
+/* Links */
+a {
+  text-decoration: none;
+}
+
+/* Animate certain elements */
+a {
+  transition: linear 0.2s;
+}
