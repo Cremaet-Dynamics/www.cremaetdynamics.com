@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,600;1,600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-
 /* Theme variables */
 :root {
-  --theme-text-light: #000;
+  --theme-text-light: #111;
   --theme-text-secondary-light: #999;
   --theme-text-dark: #f7f7f7;
   --theme-text-secondary-dark: #aaa;
@@ -28,7 +27,6 @@
   --font-family: 'Roboto', sans-serif;
   --header-font-family: 'Roboto', sans-serif;
   --logo-font-family: 'Josefin Sans', sans-serif;
-  /*--header-bg-image: url('../images/bg.webp');*/
   --header-bg-image:
     radial-gradient(at 0% 0%, var(--theme-color-2) 0px, transparent 50%),
     radial-gradient(at 40% 20%, var(--theme-color-3) 0px, transparent 50%),
@@ -42,6 +40,7 @@
   --logo-image: url('../images/logo.svg');
   --color-link: var(--theme-color-5);
   --color-accent: var(--theme-color-2);
+  --color-shadow: var(--theme-color-5);
 }
 
 /* Prevent padding to increase size of elements */
@@ -75,6 +74,11 @@ h4,
 h5,
 h6 {
   font-family: var(--header-font-family);
+}
+
+/* Icons */
+.material-symbols-outlined {
+  font-size: 1em;
 }
 
 /* Nav (headers and footers) */
@@ -112,26 +116,37 @@ body>header {
   background-size: cover;
   background-position: center;
 }
+
 body>header nav {
   font-weight: normal;
   padding: 0 1rem;
 }
+
 body>header nav h1 {
   font-family: var(--logo-font-family);
 }
+
 body>header nav a {
   color: var(--color-text);
 }
 
+body>header nav a:hover {
+  filter: brightness(calc(6 * var(--hover-brightness)));
+}
+
+body>header nav a:active {
+  filter: brightness(calc(6 * var(--active-brightness)));
+}
+
 body>header {
-  position:relative;
+  position: relative;
 }
 
 body>header .particles-js-canvas-el {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1;
+  z-index: -2;
 }
 
 /* Header in the landing page */
@@ -153,9 +168,10 @@ body.landing-page>header::before {
   content: "";
   top: 0;
   left: 0;
-  z-index: -2;
+  z-index: -4;
   position: absolute;
 }
+
 body.landing-page>header::after {
   background-image: var(--logo-image);
   background-size: contain;
